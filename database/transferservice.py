@@ -5,9 +5,7 @@ from database import get_db
 
 
 # проверка карты
-def _validate_card(card_number):
-    db = next(get_db())
-
+def _validate_card(card_number, db):
     exact_card = db.query(UserCard).filter_by(card_number=card_number).first()
 
     return exact_card
@@ -18,8 +16,8 @@ def create_transaction_db(card_from, card_to, amount):
     db = next(get_db())
 
     # Проверка на наличие в базе обеих карт
-    check_card_from = _validate_card(card_from)
-    check_card_to = _validate_card(card_to)
+    check_card_from = _validate_card(card_from, db)
+    check_card_to = _validate_card(card_to, db)
 
     # Если обе карты существуют в базе данных
     if check_card_from and check_card_to:
@@ -60,8 +58,8 @@ def cancel_transfer_db(card_from, card_to, amount, transfer_id):
     db = next(get_db())
 
     # Проверка на наличие в базе обеих карт
-    check_card_from = _validate_card(card_from)
-    check_card_to = _validate_card(card_to)
+    check_card_from = _validate_card(card_from, db)
+    check_card_to = _validate_card(card_to, db)
 
     # Если обе карты существуют в базе данных
     if check_card_from and check_card_to:
