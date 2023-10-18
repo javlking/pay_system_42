@@ -1,6 +1,9 @@
 # указываем язык программирования
 FROM python:3.10
 
+#
+WORKDIR /pay_system
+
 # Копировать все папки/фалы в Докер
 COPY . /pay_system
 

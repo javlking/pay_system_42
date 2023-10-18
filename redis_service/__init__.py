@@ -1,7 +1,7 @@
 import redis
 
 # Создать подключение к редису
-redis_db = redis.from_url('redis://localhost')
+redis_db = redis.from_url('redis://redis_db')
 
 # Создать запись в базе данных
 # redis_db.set("spam", 10)  # {'spam': 10}

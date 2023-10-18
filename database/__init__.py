@@ -4,7 +4,8 @@ from sqlalchemy.ext.declarative import declarative_base
 
 
 # Ссылка на базу данных
-SQLALCHEMY_DATABASE_URI = "sqlite:///data.db"
+# SQLALCHEMY_DATABASE_URI = "sqlite:///data.db"
+SQLALCHEMY_DATABASE_URI = "postgresql://postgres:postgres@database/postgres"
 
 # Подключение к базе данных
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
